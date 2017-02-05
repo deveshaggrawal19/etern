@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags always come first -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Lantern - Comming Soon!</title>
+      <!-- FavIcon -->
+      <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon" type="image/x-icon" />
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+      <!-- Bootstrap core CSS -->
+      <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+      <!-- Material Design -->
+      <link href="{{ url_for('static', filename='css/materialD.css') }}" rel="stylesheet">
+      <!-- Custom Stylesheet-->
+      <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+   </head>
+   <body class="fixed-sn dark-skin">
+      <!-- Main layout -->
+      <main>
+         <div class="container">
+            <!--Post-->
+            <div class="row">
+               <!--Main listing-->
+               <div class="col-md-12 full-width-blog ">
+                  <div class="divider-new wow fadeIn">
+                     <img src="{{url_for('static', filename='img/logo_header.png') }}" style="width: 50%;height: 50%;">
+                  </div>
+                  <section  class="section">
+                     <!--Section description-->
+                     <p class="section-description m-b-5 wow fadeIn" data-wow-delay="0.2s">Some description of the site?</p>
+                     <div class="row wow fadeIn vertical-divider" data-wow-delay="0.4s">
+                        <!--First column-->
+                        <div class="col-md-6 mb-r">
+                           <form onsubmit="return Validate(this);" action="{{url_for('coming_soon')}}" method='POST' enctype='multipart/form-data'>
+                              <!--First row-->
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <h3 class="text-xs-center"><i class="fa fa-file"></i> Submit your Work</h3>
+                                    <br>
+                                    <div class="md-form">
+                                       <input name='name' type="text" id="form51" class="form-control" required>
+                                       <label for="form51" class="">Name</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!--/First row-->
+                              <!--Second row-->
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="md-form">
+                                       <input name="title" type="text" id="form51" class="form-control" required>
+                                       <label for="form51" class="">Title</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!--/Second row-->
+                              <!--Third row-->
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="md-form">
+                                       <input name='caption' type="text" id="form51" class="form-control" required>
+                                       <label for="form51" class="">Caption</label>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!--/Third row-->
+                              <!--Fourth row-->
+                              <div class="file-field">
+                                 <div class="btn btn-primary" >
+                                    <span>Choose file</span>
+                                    <input name='file' type="file" required>
+                                 </div>
+                                 <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Upload your file">
+                                 </div>
+                              </div>
+                              <!--/Fourth row-->
+                           <br><br>
+                           <!--Genre Choosing-->
+                           <div class="dropdown float-xs-left">
+                              <select name="genre" class="mdb-select" required>
+                                  <option value="" disabled selected>Choose your option</option>
+                                  <option value="1">Photography</option>
+                                  <option value="2">Art</option>
+                                  <option value="3">Sculpture</option>
+                                  <option value="4">Literature</option>
+                                  <option value="5">Gif</option>
+                              </select>
+                              <label>Genre</label>
+                           </div>
+                           <!--Genre Choosing-->
+                           <div class="float-xs-right">
+                              <button type='submit' class="btn btn-lg btn-primary">Submit!</button>
+                           </div>
+                           </form >
+                        </div>
+                        <!--.First column-->
+                        <!--Second column-->
+                        <div class="col-md-6 ">
+                           <h2 class="text-xs-center"><i class="fa fa-envelope"></i> Get Notified :)</h2>
+                           <form action="{{url_for('coming_soon', subscribe='True')}}" method='POST' enctype='multipart/form-data'>
+                           <div class="pt-1">
+                              <!--Card Primary-->
+                              <!--/.Card Primary-->
+                              <br>
+                              <div class="md-form">
+                                 <i class="fa fa-user prefix "></i>
+                                 <input name='name' type="text" id="form3" class="form-control" required>
+                                 <label for="form3" class="">Your Name</label>
+                              </div>
+                              <div class="md-form">
+                                 <i class="fa fa-envelope prefix"></i>
+                                 <input name='email' type="text" id="form2" class="form-control" required>
+                                 <label for="form2">Your Email</label>
+                              </div>
+                              <div class="text-xs-center">
+                                 <button type='submit' class="btn btn-lg btn-primary">Subscribe me!</button>
+                              </div>
+                           </div>
+                           </form>
+                        </div>
+                        <!--.Second column-->
+                     </div>
+                  </section>
+                  
+               </div>
+            </div>
+            <!--/.Main listing-->
+         </div>
+         <!--/.Post-->
+         </div>
+      </main>
+      <!--/ Main layout -->
+      <!-- SCRIPTS -->
+      <!-- JQuery -->
+      <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.1.1.min.js')}}"></script>
+      <!-- Tooltips -->
+      <script type="text/javascript" src="{{url_for('static', filename='js/tether.min.js') }}"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script>
+      <!-- Material Design core JavaScript -->
+      <script type="text/javascript" src="{{url_for('static', filename='js/materialD.min.js') }}"></script>
+      <!-- Mood Navigation JavaScript -->
+      <script type="text/javascript" src="{{url_for('static', filename='js/moodCircleNav.js') }}"></script>
+      <script>
+         // Animation init
+         new WOW().init();
+         $(document).ready(function() {
+          $('.mdb-select').material_select();
+         });
+         var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png", ".txt", ".doc", ".docx", ".pdf"];
+         function Validate(oForm) {
+             var arrInputs = oForm.getElementsByTagName("input");
+             for (var i = 0; i < arrInputs.length; i++) {
+                 var oInput = arrInputs[i];
+                 if (oInput.type == "file") {
+                     var sFileName = oInput.value;
+                     if (sFileName.length > 0) {
+                         var blnValid = false;
+                         for (var j = 0; j < _validFileExtensions.length; j++) {
+                             var sCurExtension = _validFileExtensions[j];
+                             if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                                 blnValid = true;
+                                 break;
+                             }
+                         }
+
+                         if (!blnValid) {
+                             alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                             return false;
+                         }
+                     }
+                 }
+             }
+
+             return true;
+         }
+         
+      </script>
+   </body>
+</html>
